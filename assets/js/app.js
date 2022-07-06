@@ -33,8 +33,33 @@ async function showPosts() {
 
     postsContainer.appendChild(postsElement);
     });
-    console.log(postsElement)
+   
 };
+
+// Show Loader and fetch more posts
+function showLoading() {
+    loading.classList.add("show");
+
+    setTimeout(() => {
+        loading.classList.remove("show");
+
+        setTimeout(() => {
+            page++;
+            showPosts();
+        }, 300);
+    }, 1000);
+};
+
+
 
 // Show Initial Posts
 showPosts();
+
+window.addEventListener("scroll", () => {
+    const { scrollTop, scrollHeight, clientHeight }
+ = document.documentElement;
+
+ if (scrollTop + clientHeight >= scrollHeight - 5) {
+    showLoading();
+ };
+});
