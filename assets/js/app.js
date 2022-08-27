@@ -71,6 +71,8 @@ function filterPosts(e) {
 // Show Initial Posts
 showPosts();
 
+
+// Loads the hidden posts on scroll
 window.addEventListener("scroll", () => {
     const { scrollTop, scrollHeight, clientHeight }
  = document.documentElement;
@@ -80,4 +82,5 @@ window.addEventListener("scroll", () => {
  };
 });
 
+// Filter loaded posts by keywords
 filter.addEventListener("input", filterPosts);
